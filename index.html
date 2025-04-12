@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK'IN Morocco - La Science de la Peau Pure</title>
+    <meta name="description" content="SK'IN Morocco - Centre spécialisé en soins de visage haut de gamme à Casablanca, alliant science et précision.">
+    <!-- Use Inter font as per bubbles.html design system -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Keep Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Styles copied and adapted from bubbles.html and original index.html */
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F9F9F9; /* Light background for alternate sections */
+            --text-color-primary: #333333;
+            --text-color-secondary: #757575;
+            --bubble-bg: #FFFFFF;
+            --bubble-border: #E0E0E0;
+            --bubble-shadow: rgba(0, 0, 0, 0.04);
+            --accent-blue: #8BCAD8;
+            --bubble-hover-border: var(--accent-blue);
+            --bubble-hover-shadow: rgba(139, 202, 216, 0.15);
+            --accent-dark: #444; /* Darker accent for buttons/links */
+            --font-primary: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 90%; /* Use percentage for better responsiveness */
+            margin: 0 auto;
+            padding: 0 15px; /* Consistent horizontal padding */
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed; /* Make header sticky */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Slightly wider for header content */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--text-color-primary);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .logo span {
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        header nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 1.8rem; /* Space between nav items */
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: var(--text-color-secondary);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            color: var(--accent-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none; /* Hide by default */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color-primary);
+            cursor: pointer;
+        }
+
+        /* Buttons */
+         .btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--bg-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 1px solid var(--accent-blue);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #7ab8c7; /* Slightly darker blue */
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background-color: var(--text-color-primary);
+            border-color: var(--text-color-primary);
+            color: var(--bg-color);
+        }
+        .btn-dark:hover {
+             background-color: var(--text-color-secondary);
+             border-color: var(--text-color-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bg-color);
+            padding-top: 80px; /* Account for fixed header */
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/hero-bg.jpg') no-repeat center center/cover; /* Replace with your hero image */
+            z-index: -2;
+        }
+         .hero-bg::after { /* Overlay */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: -1;
+         }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem; /* Match h1 from bubbles */
+            font-weight: 200; /* Match h1 from bubbles */
+            letter-spacing: 0.1em; /* Match h1 from bubbles */
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+             color: var(--bg-color); /* Ensure white text */
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 6rem 0; /* Consistent vertical padding */
+        }
+
+        .section-light {
+            background-color: var(--bg-light);
+        }
+         .section-accent {
+            background-color: var(--accent-blue);
+            color: var(--bg-color);
+            padding: 4rem 0;
+         }
+         .section-accent h2 { color: var(--bg-color); }
+         .section-accent p { color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; }
+
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem; /* Slightly smaller than hero h1 */
+            font-weight: 300; /* Match h2 from bubbles */
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-color-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Introduction Section */
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--text-color-secondary);
+        }
+         .intro-content p {
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+         }
+         .intro-content p:last-child { margin-bottom: 0; }
+
+        /* Collections Section (Using Bubbles) */
+        #collections {
+            /* Adjust padding if needed */
+        }
+
+        /* Using bubble styles from bubbles.html */
+        .concerns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px 45px; /* Row gap, Column gap */
+            margin-top: 30px;
+        }
+
+        .concern-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px;
+            gap: 12px; /* Increased gap */
+            text-decoration: none; /* Make the whole item clickable */
+            color: inherit; /* Inherit text color */
+            transition: opacity 0.3s ease;
+        }
+        .concern-item:hover {
+            opacity: 0.9; /* Slight feedback on hover */
+        }
+
+        .concern-bubble {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background-color: var(--bubble-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1.5px solid var(--bubble-border);
+            box-shadow: 0 5px 15px var(--bubble-shadow);
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.35s ease-out;
+        }
+
+        .concern-item:hover .concern-bubble { /* Hover effect on item hover */
+            transform: scale(1.04);
+            border-color: var(--bubble-hover-border);
+            box-shadow: 0 8px 25px var(--bubble-hover-shadow);
+        }
+
+        .concern-text {
+            font-size: 1rem;
+            font-weight: 500; /* Bolder text */
+            text-align: center;
+            line-height: 1.4;
+            z-index: 2;
+            padding: 0 15px;
+            color: var(--text-color-primary);
+            transition: color 0.3s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .concern-item:hover .concern-text {
+             /* color: var(--accent-blue); Optional: change text color on hover */
+        }
+
+        .concern-description {
+            font-size: 0.85rem;
+            color: var(--text-color-secondary);
+            font-weight: 300;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .bubble-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .mini-bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+
+        /* Science Section */
+        .science-section {
+             background-color: var(--bg-color); /* Ensure white background */
+             padding: 6rem 0;
+        }
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .science-content .subtitle {
+             font-size: 0.9rem;
+             font-weight: 500;
+             color: var(--accent-blue);
+             letter-spacing: 0.1em;
+             text-transform: uppercase;
+             margin-bottom: 0.5rem;
+        }
+        .science-content h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-color-primary);
+            margin-bottom: 1.5rem;
+        }
+        .science-content > p { /* Target direct paragraph child */
+             font-size: 1.05rem;
+             color: var(--text-color-secondary);
+             margin-bottom: 2.5rem;
+             font-weight: 300;
+        }
+
+        .science-list {
+             display: grid;
+             gap: 1.8rem;
+        }
+
+        .science-item h4 {
+             font-size: 1.1rem;
+             font-weight: 500;
+             color: var(--text-color-primary);
+             margin-bottom: 0.5rem;
+             letter-spacing: 0.03em;
+        }
+        .science-item p {
+            font-size: 0.95rem;
+            color: var(--text-color-secondary);
+            font-weight: 300;
+        }
+
+        .science-image {
+            min-height: 450px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px; /* Slight rounding */
+        }
+
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--bg-light);
+            color: var(--text-color-secondary);
+            padding: 4rem 0 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+             font-size: 1.8rem;
+             font-weight: 300;
+             color: var(--text-color-primary);
+             margin-bottom: 1rem;
+             letter-spacing: 0.1em;
+        }
+         .footer-logo span {
+             font-weight: 500;
+             color: var(--accent-blue);
+         }
+
+        .footer-about p {
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        footer h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-color-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        footer a {
+            color: var(--text-color-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 300;
+        }
+
+        footer a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bubble-border);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+             html { font-size: 15px; }
+             .hero h1 { font-size: 3rem; }
+             .section { padding: 5rem 0; }
+             .section-header h2 { font-size: 2.2rem; }
+             .concern-item { width: 165px; }
+             .concern-bubble { height: 165px; }
+             .concerns { gap: 40px 35px; }
+             .concern-text { font-size: 0.95rem; }
+             .concern-description { font-size: 0.8rem; }
+             .science-grid { grid-template-columns: 1fr; } /* Stack science section */
+             .science-image { order: -1; min-height: 350px; } /* Move image above text */
+        }
+
+        @media (max-width: 768px) {
+            .header-container { padding: 0 15px; }
+            header nav ul {
+                display: none; /* Hide desktop nav */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                gap: 0;
+            }
+            header nav ul.active { display: flex; } /* Show when active */
+            header nav ul li { width: 100%; text-align: center; }
+            header nav ul li a { display: block; padding: 1rem 0; width: 100%; }
+            header nav .btn { /* Adjust button in mobile menu */
+                 display: block;
+                 margin: 1rem auto;
+                 width: 80%;
+            }
+
+            .mobile-menu-btn { display: block; } /* Show hamburger */
+
+            .hero h1 { font-size: 2.5rem; letter-spacing: 0.08em; }
+            .hero p { font-size: 1rem; }
+            .section { padding: 4rem 0; }
+            .section-header h2 { font-size: 2rem; }
+            .concern-item { width: 145px; }
+            .concern-bubble { height: 145px; }
+            .concern-text { font-size: 0.9rem; }
+            .concern-description { font-size: 0.75rem; }
+            .concerns { gap: 35px 30px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center;}
+             .footer-about p { max-width: 400px; margin: 0 auto; }
+        }
+
+        @media (max-width: 480px) {
+             html { font-size: 14px; }
+             .hero h1 { font-size: 2rem; }
+             .section-header h2 { font-size: 1.8rem; }
+             .concern-item { width: calc(50% - 15px); /* Two bubbles per row */ }
+             .concern-bubble { height: 140px; /* Adjust height slightly */ }
+             .concern-text { font-size: 0.85rem; }
+             .concern-description { font-size: 0.75rem; }
+             .concerns { gap: 30px; } /* Equal gap */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">SK'<span>IN</span></a>
+            <nav>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav">
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#science">Notre Science</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://www.fresha.com/a/skin-casablanca-13-rue-ain-el-ati-qdju14xa/booking" class="btn" target="_blank">Réserver</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="subtitle">Bienvenue chez SK'IN</p>
+                <h1>La Science de la Peau Pure</h1>
+                <p>Premier centre spécialisé en soins de visage à Casablanca, alliant science de pointe et précision pour révéler la version la plus radieuse de vous-même.</p>
+                <a href="#collections" class="btn">Découvrir nos collections</a>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center">
+                <p class="subtitle">Notre Vision</p>
+                <h2>Une Approche Transformative</h2>
+            </div>
+            <div class="intro-content">
+                <p>Chez SK'IN, nous avons repensé l'approche des soins du visage pour créer une expérience transformative alliant science de pointe et luxe sensoriel. Nos collections de soins sont conçues pour répondre à des besoins spécifiques tout en offrant une expérience holistique.</p>
+                <p>Situé dans le quartier BOURGOGNE de Casablanca, notre centre combine l'expertise de nos Thérapeutes SK'IN avec les formules innovantes des marques les plus prestigieuses : 111Skin, Augustinus Bader et ENVIRON.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section (Now with Bubbles) -->
+    <section id="collections" class="section section-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <p class="subtitle">Nos Collections</p>
+                <h2>Soins Conçus pour Transformer</h2>
+                <p>Explorez nos collections, chacune ciblant des besoins spécifiques avec une approche scientifique et luxueuse.</p>
+            </div>
+
+            <!-- Bubble structure copied and adapted -->
+            <div class="concerns">
+
+                 <!-- Révélation -->
+                 <a href="revelation.html" class="concern-item">
+                     <div class="concern-bubble" id="revelation">
+                         <div class="concern-text">Révélation</div>
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Découvrir et comprendre votre peau.</p>
+                 </a>
+
+                 <!-- Régénération -->
+                 <a href="regeneration.html" class="concern-item">
+                     <div class="concern-bubble" id="regeneration">
+                         <div class="concern-text">Régénération</div>
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Stimuler le renouvellement cellulaire.</p>
+                 </a>
+
+                 <!-- Éclat -->
+                 <a href="eclat.html" class="concern-item">
+                     <div class="concern-bubble" id="eclat">
+                         <div class="concern-text">Éclat</div>
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Illuminer et unifier le teint.</p>
+                 </a>
+
+                 <!-- Architecture (was Lift Summum) -->
+                 <a href="architecture.html" class="concern-item"> <!-- Link to architecture.html -->
+                     <div class="concern-bubble" id="architecture"> <!-- ID matches page -->
+                         <div class="concern-text">Architecture</div> <!-- Text matches page -->
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Redéfinir les contours et raffermir.</p>
+                 </a>
+
+                 <!-- Fondamentale -->
+                 <a href="fondamentale.html" class="concern-item">
+                     <div class="concern-bubble" id="fondamentale">
+                         <div class="concern-text">Fondamentale</div>
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Nourrir et équilibrer la peau.</p>
+                 </a>
+
+                 <!-- Ciblée -->
+                 <a href="ciblee.html" class="concern-item">
+                     <div class="concern-bubble" id="ciblee">
+                         <div class="concern-text">Ciblée</div>
+                         <div class="bubble-animation"></div>
+                     </div>
+                     <p class="concern-description">Traiter des préoccupations spécifiques.</p>
+                 </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section id="science" class="science-section">
+        <div class="container">
+            <div class="science-grid">
+                <div class="science-content">
+                    <p class="subtitle">Notre Expertise</p>
+                    <h2>La Science SK'IN</h2>
+                    <p>Au cœur de chaque traitement se trouve notre engagement envers l'excellence scientifique. Nos protocoles combinent expertise thérapeutique et formules innovantes pour des résultats visibles et durables.</p>
+                    <div class="science-list">
+                        <div class="science-item">
+                            <h4>Expertise Thérapeutique</h4>
+                            <p>Nos Thérapeutes SK'IN personnalisent chaque traitement selon vos besoins uniques.</p>
+                        </div>
+                        <div class="science-item">
+                            <h4>Partenariats d'Excellence</h4>
+                            <p>Nous collaborons avec 111Skin, Augustinus Bader, et ENVIRON pour vous offrir le meilleur de la recherche dermatologique.</p>
+                        </div>
+                        <div class="science-item">
+                            <h4>Approche Holistique</h4>
+                            <p>Nous traitons les symptômes visibles et leurs causes profondes pour des résultats durables.</p>
+                        </div>
+                        <div class="science-item">
+                            <h4>Expérience Sensorielle</h4>
+                            <p>Nos rituels de soins transforment chaque traitement en une expérience luxueuse.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="science-image" style="background-image: url('images/science-skin.jpg');"></div> <!-- Replace with relevant image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-accent">
+        <div class="container text-center">
+            <h2>Découvrez Votre Peau Transformée</h2>
+            <p>Réservez votre consultation personnalisée et commencez votre parcours vers une peau radieuse.</p>
+            <a href="https://www.fresha.com/a/skin-casablanca-13-rue-ain-el-ati-qdju14xa/booking" class="btn btn-dark" target="_blank">Réserver Maintenant</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">SK'<span>IN</span></div>
+                    <p>Premier centre spécialisé en soins de visage à Casablanca, alliant science de pointe et précision pour révéler la version la plus radieuse de vous-même.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>13 Rue Aïn El Ati, BOURGOGNE</p>
+                    <p>Casablanca, Maroc</p>
+                    <p>Téléphone: +212 6 XX XX XX XX</p> <!-- Placeholder phone -->
+                    <p>Email: contact@skin-morocco.com</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#science">Notre Science</a></li>
+                        <li><a href="https://www.fresha.com/a/skin-casablanca-13-rue-ain-el-ati-qdju14xa/booking" target="_blank">Réserver</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-nous</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/skin.morocco/" target="_blank">Instagram</a></li>
+                        <!-- Add Facebook link if available -->
+                        <!-- <li><a href="#" target="_blank">Facebook</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <script>document.write(new Date().getFullYear());</script> SK'IN Morocco. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bubble Animation Script (copied from bubbles.html) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                });
+                // Close menu if clicking outside on mobile
+                document.addEventListener('click', function(event) {
+                    if (!mainNav.contains(event.target) && !menuToggle.contains(event.target) && mainNav.classList.contains('active')) {
+                         mainNav.classList.remove('active');
+                    }
+                });
+            }
+
+            // --- Bubble Animation ---
+            const concernItems = document.querySelectorAll('.concern-item'); // Select the wrapper item
+            const accentBlue = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue').trim();
+
+            function createMiniBubbles(bubbleElement) { // Pass the .concern-bubble element
+                const bubbleAnimationContainer = bubbleElement.querySelector('.bubble-animation');
+                if (!bubbleAnimationContainer) return;
+
+                // Clear any existing mini-bubbles immediately
+                 while (bubbleAnimationContainer.firstChild) {
+                     bubbleAnimationContainer.removeChild(bubbleAnimationContainer.firstChild);
+                 }
+
+
+                const bubbleCount = Math.floor(Math.random() * 5) + 6; // 6-10 bubbles
+
+                for (let i = 0; i < bubbleCount; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('mini-bubble');
+
+                    const size = Math.floor(Math.random() * 7) + 3;
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+
+                    if (Math.random() > 0.4) {
+                         bubble.style.backgroundColor = accentBlue + 'B3';
+                    } else {
+                        bubble.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+                    }
+
+                    const startX = Math.random() * 50 + 25;
+                    const startY = Math.random() * 20 + 75;
+                    bubble.style.left = `${startX}%`;
+                    bubble.style.top = `${startY}%`;
+
+                    bubbleAnimationContainer.appendChild(bubble);
+                    animateBubble(bubble, startX, startY);
+                }
+            }
+
+            function animateBubble(bubble, startX, startY) {
+                const endY = startY - (Math.random() * 40 + 30);
+                const midX = startX + (Math.random() * 10 - 5);
+                const endX = startX + (Math.random() * 8 - 4);
+                const duration = Math.random() * 2 + 1.8;
+                const delay = Math.random() * 0.4;
+
+                bubble.animate([
+                    { transform: 'scale(0)', opacity: 0, offset: 0 },
+                    { transform: 'scale(1)', opacity: 0.9, offset: 0.15 },
+                    { transform: 'scale(1)', opacity: 0.7, offset: 0.8 },
+                    { transform: 'scale(0.6)', opacity: 0, offset: 1 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
+                    fill: 'forwards',
+                    delay: delay * 1000
+                });
+
+                bubble.animate([
+                    { top: `${startY}%`, left: `${startX}%` },
+                    { top: `${(startY + endY)/2}%`, left: `${midX}%`},
+                    { top: `${endY}%`, left: `${endX}%` }
+                 ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
+                    fill: 'forwards',
+                    delay: delay * 1000
+                });
+
+                // Use Promise.allSettled on the animations to remove the bubble after both finish
+                Promise.allSettled(bubble.getAnimations().map(anim => anim.finished)).then(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                });
+            }
+
+            concernItems.forEach(item => {
+                const bubble = item.querySelector('.concern-bubble');
+                if (!bubble) return;
+
+                let canBubble = true;
+                let enterTimeout;
+
+                 item.addEventListener('mouseenter', function() { // Listen on the item
+                    const currentBubble = this.querySelector('.concern-bubble'); // Get bubble from this item
+                    clearTimeout(enterTimeout);
+                    if (canBubble) {
+                        createMiniBubbles(currentBubble); // Pass the bubble element
+                        canBubble = false;
+                         // Reset canBubble slightly longer than animation to prevent immediate re-trigger
+                        enterTimeout = setTimeout(() => { canBubble = true; }, 400);
+                    }
+                });
+
+                // No specific action needed on mouseleave, bubbles fade out automatically
+
+                // Click handled by the <a> tag wrapping the item
+            });
+        });
+    </script>
+
+</body>
+</html>
