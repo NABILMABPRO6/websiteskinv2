@@ -7,10 +7,10 @@
     <meta name="description" content="SK'IN Morocco - Centre spécialisé en soins de visage haut de gamme à Casablanca, alliant science et précision.">
     <!-- Use Inter font as per bubbles.html design system -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Keep Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome for icons (CSS Version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* Styles copied and adapted from bubbles.html and original index.html */
+        /* --- BASE STYLES & VARIABLES --- */
         :root {
             --bg-color: #FFFFFF;
             --bg-light: #F9F9F9; /* Light background for alternate sections */
@@ -19,11 +19,13 @@
             --bubble-bg: #FFFFFF;
             --bubble-border: #E0E0E0;
             --bubble-shadow: rgba(0, 0, 0, 0.04);
-            --accent-blue: #8BCAD8;
+            --accent-blue: #8BCAD8; /* Kept for consistency, though used subtly */
             --bubble-hover-border: var(--accent-blue);
             --bubble-hover-shadow: rgba(139, 202, 216, 0.15);
             --accent-dark: #444; /* Darker accent for buttons/links */
             --font-primary: 'Inter', sans-serif;
+            /* UPDATED: Soft beige for avatars */
+            --avatar-bg: #F5F3EF;
         }
 
         * {
@@ -54,7 +56,7 @@
             padding: 0 15px; /* Consistent horizontal padding */
         }
 
-        /* Header Styles */
+        /* --- HEADER STYLES --- */
         header {
             position: fixed; /* Make header sticky */
             top: 0;
@@ -118,7 +120,7 @@
             cursor: pointer;
         }
 
-        /* Buttons */
+        /* --- BUTTON STYLES --- */
          .btn {
             display: inline-block;
             background-color: var(--accent-blue);
@@ -149,16 +151,17 @@
              border-color: var(--text-color-secondary);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            height: 100vh; /* Full viewport height */
+            min-height: 100vh; /* Use min-height */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--bg-color);
-            padding-top: 80px; /* Account for fixed header */
+            padding-top: 100px; /* Increased padding for header */
+            padding-bottom: 40px; /* Add some bottom padding */
             overflow: hidden;
         }
 
@@ -168,7 +171,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('hero-bg.jpg') no-repeat center center/cover; /* Replace with your hero image */
+            /* Ensure you have a high-quality, soft image here */
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
             z-index: -2;
         }
          .hero-bg::after { /* Overlay */
@@ -178,7 +182,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.3); /* Slightly lighter overlay */
             z-index: -1;
          }
 
@@ -196,12 +200,12 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem; /* Match h1 from bubbles */
-            font-weight: 200; /* Match h1 from bubbles */
-            letter-spacing: 0.1em; /* Match h1 from bubbles */
+            font-size: 3.5rem;
+            font-weight: 200;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             margin-bottom: 1rem;
-             color: var(--bg-color); /* Ensure white text */
+            color: var(--bg-color); /* Ensure white text */
         }
 
         .hero p {
@@ -214,7 +218,7 @@
             margin-right: auto;
         }
 
-        /* General Section Styling */
+        /* --- GENERAL SECTION STYLING --- */
         .section {
             padding: 6rem 0; /* Consistent vertical padding */
         }
@@ -246,8 +250,8 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem; /* Slightly smaller than hero h1 */
-            font-weight: 300; /* Match h2 from bubbles */
+            font-size: 2.5rem;
+            font-weight: 300;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--text-color-primary);
@@ -262,7 +266,7 @@
             font-weight: 300;
         }
 
-        /* Introduction Section */
+        /* --- INTRODUCTION SECTION --- */
         .intro-content {
             max-width: 800px;
             margin: 0 auto;
@@ -276,12 +280,7 @@
          }
          .intro-content p:last-child { margin-bottom: 0; }
 
-        /* Collections Section (Using Bubbles) */
-        #collections {
-            /* Adjust padding if needed */
-        }
-
-        /* Using bubble styles from bubbles.html */
+        /* --- COLLECTIONS SECTION (BUBBLES) --- */
         .concerns {
             display: flex;
             flex-wrap: wrap;
@@ -296,18 +295,18 @@
             align-items: center;
             width: 180px;
             gap: 12px; /* Increased gap */
-            text-decoration: none; /* Make the whole item clickable */
-            color: inherit; /* Inherit text color */
+            text-decoration: none;
+            color: inherit;
             transition: opacity 0.3s ease;
         }
         .concern-item:hover {
-            opacity: 0.9; /* Slight feedback on hover */
+            opacity: 0.9;
         }
 
         .concern-bubble {
             position: relative;
             width: 100%;
-            height: 180px;
+            aspect-ratio: 1 / 1; /* Ensures square/circle shape */
             background-color: var(--bubble-bg);
             border-radius: 50%;
             display: flex;
@@ -322,7 +321,7 @@
                         border-color 0.35s ease-out;
         }
 
-        .concern-item:hover .concern-bubble { /* Hover effect on item hover */
+        .concern-item:hover .concern-bubble {
             transform: scale(1.04);
             border-color: var(--bubble-hover-border);
             box-shadow: 0 8px 25px var(--bubble-hover-shadow);
@@ -330,7 +329,7 @@
 
         .concern-text {
             font-size: 1rem;
-            font-weight: 500; /* Bolder text */
+            font-weight: 500;
             text-align: center;
             line-height: 1.4;
             z-index: 2;
@@ -341,17 +340,16 @@
             letter-spacing: 0.05em;
         }
 
-        .concern-item:hover .concern-text {
-             /* color: var(--accent-blue); Optional: change text color on hover */
-        }
-
         .concern-description {
-            font-size: 0.85rem;
-            color: var(--text-color-secondary);
-            font-weight: 300;
+            /* ENHANCED VISIBILITY */
+            font-size: 0.9rem;
+            color: var(--text-color-primary); /* Darker */
+            font-weight: 500; /* Bolder */
             line-height: 1.4;
             text-align: center;
             max-width: 100%;
+            margin-top: 8px; /* Space above */
+            letter-spacing: 0.02em;
         }
 
         .bubble-animation {
@@ -373,10 +371,9 @@
             transform: scale(0);
         }
 
-
-        /* Science Section */
+        /* --- SCIENCE SECTION --- */
         .science-section {
-             background-color: var(--bg-color); /* Ensure white background */
+             background-color: var(--bg-color);
              padding: 6rem 0;
         }
         .science-grid {
@@ -402,7 +399,7 @@
             color: var(--text-color-primary);
             margin-bottom: 1.5rem;
         }
-        .science-content > p { /* Target direct paragraph child */
+        .science-content > p {
              font-size: 1.05rem;
              color: var(--text-color-secondary);
              margin-bottom: 2.5rem;
@@ -431,16 +428,125 @@
             min-height: 450px;
             background-size: cover;
             background-position: center;
-            border-radius: 8px; /* Slight rounding */
+            border-radius: 8px;
+            /* Ensure you have a high-quality, soft image here */
+            background-image: url('images/science-skin.jpg');
         }
 
+        /* --- REVIEWS SECTION STYLING (REFINED FOR MINIMALIST AESTHETIC) --- */
+        .reviews-section {
+            padding: 6rem 0;
+            background-color: var(--bg-light); /* Keep light background for separation */
+        }
 
-        /* Footer Styles */
+        /* Keep section header consistent */
+        /* .section-header h2 for Reviews remains unchanged */
+
+        .overall-rating {
+            text-align: center;
+            margin-bottom: 4rem; /* Increased bottom margin */
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: -1rem; /* Pull closer to title */
+        }
+        .overall-rating .stars {
+            /* UPDATED: Use primary text color */
+            color: var(--text-color-primary);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        .overall-rating .rating-value {
+            color: var(--text-color-primary);
+            font-weight: 600;
+             vertical-align: middle;
+        }
+        .overall-rating .review-count {
+            /* UPDATED: Use secondary text color */
+            color: var(--text-color-secondary);
+            font-weight: 400;
+            font-size: 1rem;
+             vertical-align: middle;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--bubble-border);
+            border-radius: 8px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 10px var(--bubble-shadow);
+            /* UPDATED: Transition for border/shadow */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Apply hover only on devices that support hover */
+        @media (hover: hover) {
+            .review-card:hover {
+                 /* UPDATED: Subtle border change hover */
+                border-color: var(--accent-blue);
+                box-shadow: 0 6px 15px rgba(139, 202, 216, 0.1);
+            }
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            /* UPDATED: Use soft beige */
+            background-color: var(--avatar-bg); /* #F5F3EF */
+            color: var(--text-color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .review-info h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color-primary);
+            margin-bottom: 0.1rem;
+        }
+        .review-info span {
+            font-size: 0.85rem;
+            color: var(--text-color-secondary);
+        }
+
+        .review-rating {
+            margin-bottom: 1rem;
+             /* UPDATED: Use primary text color */
+            color: var(--text-color-primary);
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: var(--text-color-secondary);
+            line-height: 1.7; /* Increased for readability */
+            font-weight: 400;
+        }
+
+        /* --- FOOTER STYLES --- */
         footer {
-            background-color: var(--bg-light);
+            background-color: var(--bg-color); /* White footer */
             color: var(--text-color-secondary);
             padding: 4rem 0 2rem 0;
             font-size: 0.9rem;
+            border-top: 1px solid var(--bubble-border); /* Subtle top border */
         }
 
         .footer-grid {
@@ -503,25 +609,23 @@
             font-weight: 300;
         }
 
-        /* Responsive Adjustments */
+        /* --- RESPONSIVE ADJUSTMENTS --- */
         @media (max-width: 992px) {
              html { font-size: 15px; }
              .hero h1 { font-size: 3rem; }
-             .section { padding: 5rem 0; }
+             .section, .reviews-section { padding: 5rem 0; }
              .section-header h2 { font-size: 2.2rem; }
              .concern-item { width: 165px; }
-             .concern-bubble { height: 165px; }
              .concerns { gap: 40px 35px; }
              .concern-text { font-size: 0.95rem; }
-             .concern-description { font-size: 0.8rem; }
-             .science-grid { grid-template-columns: 1fr; } /* Stack science section */
-             .science-image { order: -1; min-height: 350px; } /* Move image above text */
+             .science-grid { grid-template-columns: 1fr; }
+             .science-image { order: -1; min-height: 350px; }
         }
 
         @media (max-width: 768px) {
             .header-container { padding: 0 15px; }
             header nav ul {
-                display: none; /* Hide desktop nav */
+                display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -532,39 +636,38 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
                 gap: 0;
             }
-            header nav ul.active { display: flex; } /* Show when active */
+            header nav ul.active { display: flex; }
             header nav ul li { width: 100%; text-align: center; }
             header nav ul li a { display: block; padding: 1rem 0; width: 100%; }
-            header nav .btn { /* Adjust button in mobile menu */
+            header nav .btn {
                  display: block;
                  margin: 1rem auto;
                  width: 80%;
             }
 
-            .mobile-menu-btn { display: block; } /* Show hamburger */
+            .mobile-menu-btn { display: block; }
 
             .hero h1 { font-size: 2.5rem; letter-spacing: 0.08em; }
             .hero p { font-size: 1rem; }
-            .section { padding: 4rem 0; }
+            .section, .reviews-section { padding: 4rem 0; }
             .section-header h2 { font-size: 2rem; }
             .concern-item { width: 145px; }
-            .concern-bubble { height: 145px; }
             .concern-text { font-size: 0.9rem; }
-            .concern-description { font-size: 0.75rem; }
             .concerns { gap: 35px 30px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center;}
              .footer-about p { max-width: 400px; margin: 0 auto; }
+             .reviews-grid { grid-template-columns: 1fr; } /* Stack reviews */
         }
 
         @media (max-width: 480px) {
              html { font-size: 14px; }
              .hero h1 { font-size: 2rem; }
              .section-header h2 { font-size: 1.8rem; }
-             .concern-item { width: calc(50% - 15px); /* Two bubbles per row */ }
-             .concern-bubble { height: 140px; /* Adjust height slightly */ }
+             .concern-item { width: calc(50% - 15px); } /* Two bubbles per row */
              .concern-text { font-size: 0.85rem; }
-             .concern-description { font-size: 0.75rem; }
-             .concerns { gap: 30px; } /* Equal gap */
+             .concerns { gap: 30px; }
+             .review-card { padding: 1.5rem; }
+             .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem;}
         }
 
     </style>
@@ -581,6 +684,7 @@
                 <ul id="main-nav">
                     <li><a href="#collections">Collections</a></li>
                     <li><a href="#science">Notre Science</a></li>
+                    <li><a href="#reviews">Avis</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="https://www.fresha.com/a/skin-casablanca-13-rue-ain-el-ati-qdju14xa/booking" class="btn" target="_blank">Réserver</a></li>
                 </ul>
@@ -615,7 +719,7 @@
         </div>
     </section>
 
-    <!-- Collections Section (Now with Bubbles) -->
+    <!-- Collections Section (Bubbles) -->
     <section id="collections" class="section section-light">
         <div class="container">
             <div class="section-header text-center">
@@ -624,9 +728,7 @@
                 <p>Explorez nos collections, chacune ciblant des besoins spécifiques avec une approche scientifique et luxueuse.</p>
             </div>
 
-            <!-- Bubble structure copied and adapted -->
             <div class="concerns">
-
                  <!-- Révélation -->
                  <a href="revelation.html" class="concern-item">
                      <div class="concern-bubble" id="revelation">
@@ -635,7 +737,6 @@
                      </div>
                      <p class="concern-description">Découvrir et comprendre votre peau.</p>
                  </a>
-
                  <!-- Régénération -->
                  <a href="regeneration.html" class="concern-item">
                      <div class="concern-bubble" id="regeneration">
@@ -644,7 +745,6 @@
                      </div>
                      <p class="concern-description">Stimuler le renouvellement cellulaire.</p>
                  </a>
-
                  <!-- Éclat -->
                  <a href="eclat.html" class="concern-item">
                      <div class="concern-bubble" id="eclat">
@@ -653,16 +753,14 @@
                      </div>
                      <p class="concern-description">Illuminer et unifier le teint.</p>
                  </a>
-
-                 <!-- Architecture (was Lift Summum) -->
-                 <a href="architecture.html" class="concern-item"> <!-- Link to architecture.html -->
-                     <div class="concern-bubble" id="Lift Signature"> <!-- ID matches page -->
-                         <div class="concern-text">Lift Signature</div> <!-- Text matches page -->
+                 <!-- Lift Signature -->
+                 <a href="liftsignature.html" class="concern-item">
+                     <div class="concern-bubble" id="Lift Signature">
+                         <div class="concern-text">Lift Signature</div>
                          <div class="bubble-animation"></div>
                      </div>
                      <p class="concern-description">Redéfinir les contours et raffermir.</p>
                  </a>
-
                  <!-- Fondamentale -->
                  <a href="fondamentale.html" class="concern-item">
                      <div class="concern-bubble" id="fondamentale">
@@ -671,7 +769,6 @@
                      </div>
                      <p class="concern-description">Nourrir et équilibrer la peau.</p>
                  </a>
-
                  <!-- Ciblée -->
                  <a href="ciblee.html" class="concern-item">
                      <div class="concern-bubble" id="ciblee">
@@ -680,7 +777,6 @@
                      </div>
                      <p class="concern-description">Traiter des préoccupations spécifiques.</p>
                  </a>
-
             </div>
         </div>
     </section>
@@ -712,8 +808,130 @@
                         </div>
                     </div>
                 </div>
-                <div class="science-image" style="background-image: url('science-skin.jpg');"></div> <!-- Replace with relevant image -->
+                <div class="science-image"></div> <!-- Image set via CSS -->
             </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <!-- Title consistent with other sections -->
+                <h2>Reviews</h2>
+            </div>
+
+            <!-- Refined Overall Rating Display -->
+            <div class="overall-rating">
+                <span class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="rating-value">5.0</span>
+                <span class="review-count">(30)</span>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Z</div>
+                        <div class="review-info">
+                            <h4>Zora N</h4>
+                            <span>Sun, Apr 6, 2025 at 16:43</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Booked the appointment 15min and they were expect-ing me. Very well done skin assessment.. I booked a face/neck treatment. Was great. My face feels great and was in need of that deep exfoliation. Widad was great as got me.trought what we were doing. I am go-ing back for sure.
+                    </p>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-info">
+                            <h4>Assia B</h4>
+                            <span>Sat, Mar 29, 2025 at 13:17</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Excellente prestation avec Fatiha qui a des doigts de fée et beaucoup de douceur ! Je recommanderai dès à présent cette adresse à mes contacts.
+                    </p>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Z</div>
+                        <div class="review-info">
+                            <h4>Zineb T</h4>
+                            <span>Fri, Mar 28, 2025 at 14:24</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Fatiha est d'une douceur et d'un professionnalisme ex-tra ordinaire Merci pour ce moment de détente
+                    </p>
+                </div>
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">D</div>
+                        <div class="review-info">
+                            <h4>Delphine G</h4>
+                            <span>Tue, Mar 11, 2025 at 14:36</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Cadre agréable et confortable. Expérience relaxante
+                    </p>
+                </div>
+                 <!-- Review 5 -->
+                 <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">S</div>
+                        <div class="review-info">
+                            <h4>Selma Z</h4>
+                            <span>Wed, Feb 26, 2025 at 19:06</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Le lieu est magnifique et relaxant, le soin était impec-cable et toute l'équipe était super agréable merci et à bientôt
+                    </p>
+                </div>
+                 <!-- Review 6 -->
+                 <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">D</div>
+                        <div class="review-info">
+                            <h4>Dounia A</h4>
+                            <span>Sat, Jan 18, 2025 at 22:49</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        Beautiful and soothing experience
+                    </p>
+                </div>
+            </div>
+             <!-- Optional: Button to view more reviews -->
+             <!-- <div style="text-align: center; margin-top: 3rem;">
+                 <a href="#" class="btn">Voir plus d'avis</a>
+             </div> -->
         </div>
     </section>
 
@@ -738,7 +956,7 @@
                     <h4>Contact</h4>
                     <p>13 Rue Aïn El Ati, BOURGOGNE</p>
                     <p>Casablanca, Maroc</p>
-                    <p>Téléphone: +212 6 XX XX XX XX</p> <!-- Placeholder phone -->
+                    <p>Téléphone: +212 6 XX XX XX XX</p> <!-- Placeholder -->
                     <p>Email: contact@skin-morocco.com</p>
                 </div>
                 <div class="footer-links">
@@ -746,6 +964,7 @@
                     <ul>
                         <li><a href="#collections">Collections</a></li>
                         <li><a href="#science">Notre Science</a></li>
+                        <li><a href="#reviews">Avis</a></li>
                         <li><a href="https://www.fresha.com/a/skin-casablanca-13-rue-ain-el-ati-qdju14xa/booking" target="_blank">Réserver</a></li>
                     </ul>
                 </div>
@@ -753,7 +972,6 @@
                     <h4>Suivez-nous</h4>
                     <ul>
                         <li><a href="https://www.instagram.com/skin.morocco/" target="_blank">Instagram</a></li>
-                        <!-- Add Facebook link if available -->
                         <!-- <li><a href="#" target="_blank">Facebook</a></li> -->
                     </ul>
                 </div>
@@ -764,7 +982,7 @@
         </div>
     </footer>
 
-    <!-- Bubble Animation Script (copied from bubbles.html) -->
+    <!-- Scripts (Mobile Menu + Bubble Animation) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Mobile Menu Toggle ---
@@ -774,30 +992,41 @@
             if (menuToggle && mainNav) {
                 menuToggle.addEventListener('click', function() {
                     mainNav.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (mainNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 });
-                // Close menu if clicking outside on mobile
-                document.addEventListener('click', function(event) {
-                    if (!mainNav.contains(event.target) && !menuToggle.contains(event.target) && mainNav.classList.contains('active')) {
+                 document.addEventListener('click', function(event) {
+                    const isClickInsideNav = mainNav.contains(event.target);
+                    const isClickOnToggle = menuToggle.contains(event.target);
+                    const isNavLink = event.target.tagName === 'A' && mainNav.contains(event.target);
+
+                    if ((!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) || (isNavLink && mainNav.classList.contains('active'))) {
                          mainNav.classList.remove('active');
+                         menuToggle.querySelector('i').classList.remove('fa-times');
+                         menuToggle.querySelector('i').classList.add('fa-bars');
                     }
                 });
             }
 
             // --- Bubble Animation ---
-            const concernItems = document.querySelectorAll('.concern-item'); // Select the wrapper item
+            const concernItems = document.querySelectorAll('.concern-item');
             const accentBlue = getComputedStyle(document.documentElement).getPropertyValue('--accent-blue').trim();
 
-            function createMiniBubbles(bubbleElement) { // Pass the .concern-bubble element
+            function createMiniBubbles(bubbleElement) {
                 const bubbleAnimationContainer = bubbleElement.querySelector('.bubble-animation');
                 if (!bubbleAnimationContainer) return;
 
-                // Clear any existing mini-bubbles immediately
                  while (bubbleAnimationContainer.firstChild) {
                      bubbleAnimationContainer.removeChild(bubbleAnimationContainer.firstChild);
                  }
 
-
-                const bubbleCount = Math.floor(Math.random() * 5) + 6; // 6-10 bubbles
+                const bubbleCount = Math.floor(Math.random() * 5) + 6;
 
                 for (let i = 0; i < bubbleCount; i++) {
                     const bubble = document.createElement('div');
@@ -807,10 +1036,11 @@
                     bubble.style.width = `${size}px`;
                     bubble.style.height = `${size}px`;
 
+                    // Using subtle colors for mini bubbles
                     if (Math.random() > 0.4) {
-                         bubble.style.backgroundColor = accentBlue + 'B3';
+                         bubble.style.backgroundColor = accentBlue + '99'; // Lighter accent blue
                     } else {
-                        bubble.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+                        bubble.style.backgroundColor = 'rgba(224, 224, 224, 0.6)'; // Light grey
                     }
 
                     const startX = Math.random() * 50 + 25;
@@ -832,8 +1062,8 @@
 
                 bubble.animate([
                     { transform: 'scale(0)', opacity: 0, offset: 0 },
-                    { transform: 'scale(1)', opacity: 0.9, offset: 0.15 },
-                    { transform: 'scale(1)', opacity: 0.7, offset: 0.8 },
+                    { transform: 'scale(1)', opacity: 0.8, offset: 0.15 }, // Slightly less opaque
+                    { transform: 'scale(1)', opacity: 0.6, offset: 0.8 },
                     { transform: 'scale(0.6)', opacity: 0, offset: 1 }
                 ], {
                     duration: duration * 1000,
@@ -853,7 +1083,6 @@
                     delay: delay * 1000
                 });
 
-                // Use Promise.allSettled on the animations to remove the bubble after both finish
                 Promise.allSettled(bubble.getAnimations().map(anim => anim.finished)).then(() => {
                     if (bubble.parentNode) {
                         bubble.parentNode.removeChild(bubble);
@@ -868,20 +1097,15 @@
                 let canBubble = true;
                 let enterTimeout;
 
-                 item.addEventListener('mouseenter', function() { // Listen on the item
-                    const currentBubble = this.querySelector('.concern-bubble'); // Get bubble from this item
+                 item.addEventListener('mouseenter', function() {
+                    const currentBubble = this.querySelector('.concern-bubble');
                     clearTimeout(enterTimeout);
                     if (canBubble) {
-                        createMiniBubbles(currentBubble); // Pass the bubble element
+                        createMiniBubbles(currentBubble);
                         canBubble = false;
-                         // Reset canBubble slightly longer than animation to prevent immediate re-trigger
                         enterTimeout = setTimeout(() => { canBubble = true; }, 400);
                     }
                 });
-
-                // No specific action needed on mouseleave, bubbles fade out automatically
-
-                // Click handled by the <a> tag wrapping the item
             });
         });
     </script>
